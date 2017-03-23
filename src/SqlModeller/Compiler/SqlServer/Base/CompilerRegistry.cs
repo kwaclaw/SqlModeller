@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SqlModeller.Interfaces;
 using SqlModeller.Model;
+using System.Reflection;
 
 namespace SqlModeller.Compiler.SqlServer.Base
 {
@@ -37,15 +38,16 @@ namespace SqlModeller.Compiler.SqlServer.Base
              
             foreach (var compiler in registeredCompilers)
             {
-                var t = compiler.GetType();
-                 
-                foreach (Type intType in t.GetInterfaces())
+                var t = compiler.GetType().GetTypeInfo();
+
+                foreach (Type intType in t.ImplementedInterfaces)
                 {
-                    if (intType.IsGenericType)
+                    var it = intType.GetTypeInfo();
+                    if (it.IsGenericType)
                     {
                         //todo  : check if intType : TCompiler
 
-                        if (intType.GetGenericArguments()[0] == filterType)
+                        if (it.GenericTypeArguments[0] == filterType)
                         {
                             return compiler;
                         } 
