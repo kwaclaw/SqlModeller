@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.2</TargetFramework>
+    <TargetFrameworks>netstandard1.2</TargetFrameworks>
     <Copyright>Copyright © Jon Menzies-Smith 2015</Copyright>
     <Company>Jon Menzies-Smith</Company>
     <AssemblyVersion>1.0.0.7</AssemblyVersion>
     <FileVersion>1.0.0.7</FileVersion>
-    <Version>1.0.0.7</Version>
+    <VersionPrefix>1.0.0.7</VersionPrefix>
     <Description>SQL Query Modeller and Compiler with Fluent Interface</Description>
     <Authors>Jon Menzies-Smith</Authors>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>

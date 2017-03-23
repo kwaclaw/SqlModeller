@@ -1,5 +1,5 @@
-dotnet restore ../src/SqlModeller/SqlModeller.csproj
+REM unless msbuild is on the path this should be run from a Visual Studio 2017 command prompt
 
-dotnet build ../src/SqlModeller/SqlModeller.csproj -c Release /p:Platform=AnyCPU /p:OutDir=nuget
+msbuild ../src/SqlModeller/SqlModeller.csproj /t:restore;build;pack /p:Configuration=Release /p:Platform=AnyCPU /p:IncludeSymbols=true
 
-dotnet pack ../src/SqlModeller/SqlModeller.csproj --no-build --include-symbols -c Release --output ../../lib/nuget /p:OutDir=nuget
+copy ..\src\SqlModeller\bin\Release\*.nupkg .\nuget\*.*
