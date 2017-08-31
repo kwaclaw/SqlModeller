@@ -13,6 +13,35 @@ namespace SqlModellerTests
     [TestFixture]
     public class Tests
     {
+        [Test]
+        public void WhereColumnIn() {
+            var teamTable = new Table("t", "Team");
+            var names = new List<string> { "Jorge", "Benito", "Juan" };
+            var select = new SelectQuery()
+                .From(teamTable)
+                .Select(teamTable, "Name", "T_NAME")
+                .WhereColumnIn(teamTable.Alias, "Name", names, DbType.AnsiString);
+            var query = new Query();
+            query.SelectQuery = select;
+            var compiled = query.Compile(false);
+
+            Console.WriteLine(compiled.Sql);
+        }
+
+        [Test]
+        public void WhereColumnValue() {
+            var teamTable = new Table("t", "Team");
+            var select = new SelectQuery()
+                .From(teamTable)
+                .Select(teamTable, "Name", "T_NAME")
+                .WhereColumnValue(teamTable.Alias, "Name", Compare.Equal, "Jorge")
+                .WhereColumnValue(teamTable.Alias, "Name", Compare.Equal, "@Name", DbType.Object);
+            var query = new Query();
+            query.SelectQuery = select;
+            var compiled = query.Compile(false);
+
+            Console.WriteLine(compiled.Sql);
+        }
 
         [Test]
         public void TestShorthand()
