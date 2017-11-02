@@ -1,16 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <Title>KdSoft.SqlModeller</Title>
     <TargetFrameworks>netstandard1.2</TargetFrameworks>
     <Copyright>Copyright © Jon Menzies-Smith 2015</Copyright>
     <Company>Jon Menzies-Smith</Company>
     <VersionPrefix>1.1.0</VersionPrefix>
-    <VersionSuffix>netstd</VersionSuffix>
-    <Description>SQL Query Modeller and Compiler with Fluent Interface</Description>
-    <Authors>Jon Menzies-Smith</Authors>
+    <Description>NetStandard compliant fork of SqlModeller.</Description>
+    <Authors>Jon Menzies-Smith; Karl Waclawek</Authors>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>KdSoft.SqlModeller</PackageId>
     <PackageLicenseUrl>https://github.com/jmenziessmith/SqlModeller/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/jmenziessmith/SqlModeller/</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/kwaclaw/SqlModeller/</PackageProjectUrl>
     <PackageTags>SQL Query Model Modeller Compile Compiler</PackageTags>
   </PropertyGroup>
 
